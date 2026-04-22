@@ -1,8 +1,8 @@
 export default function FormLabel({ name, placeholder }) {
     return (
         <div>
-            <label for="nome">{name}: </label>
-            <input type="text" name="nome" id="" placeholder={placeholder}/>
+            <label className='text-white' for="nome">{name}:</label>
+            <input placeholder={placeholder} className='border border-white rounded-xl w-150 h-10 text-white' type="text" name="nome" id=""/>
         </div>
     )
 }

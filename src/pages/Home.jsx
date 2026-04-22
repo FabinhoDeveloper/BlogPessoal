@@ -2,6 +2,8 @@ import profile from '../assets/profile.jpg'
 
 import Navbar from '../components/Navbar'
 import ProjectCard from '../components/ProjectCard'
+import Form from '../components/Form'
+import FormLabel from '../components/FormLabel'
 
 export default function Home() {
     return (
@@ -35,12 +37,13 @@ export default function Home() {
                 <section id="artigos" className="flex bg-gray-950 h-180 items-center justify-center">
                     <h2 className="text-3xl font-bold text-white">Artigos!</h2>
                 </section>
-                <section id="contato" className="flex bg-gray-900 h-180 items-center justify-center">
+                <section id="contato" className="flex flex-col bg-gray-900 h-180 items-center justify-center">
+                    <h2 className="text-3xl font-bold text-white">Contato!</h2>
                     <div>
-                        <form action="">
-                            <label for="nome">Nome:</label>
-                            <input type="text" name="nome" id=""/>
-                        </form>
+                        <Form action={"/post"}>
+                            <FormLabel name={"Nome"} placeholder={"Digite seu nome"} />
+                            <FormLabel name={"E-mail"} placeholder={"Digite seu e-mail"}/>
+                        </Form>
                     </div>
                     <div>
                         <img src="" alt="" />
