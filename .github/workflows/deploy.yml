@@ -1,0 +1,41 @@
+name: "deploy-automatico"
+
+on: 
+    push:
+        branches: [ master ]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Baixar codigo
+            uses: actions/checkout@v4
+
+          - name: Instalar o node
+            uses: actions/setup-node@v4
+            with:
+              node-version: 22
+
+          - name: Instalar dependências
+            run: npm install
+
+          - name: Buildar o projeto
+            run: npm run build
+
+          - name: Limpar pasta remota
+            uses: appleboy/ssh-action@v1
+            with:
+              host: ${{ secrets.HOST }}
+              username: ${{ secrets.USER }}
+              key: ${{ secrets.SSH_KEY }}
+              script: |
+                rm -rf /var/www/app/*
+
+          - name: Enviar build
+            uses: appleboy/scp-action@v0.1.7
+            with:
+              host: ${{ secrets.HOST }}
+              username: ${{ secrets.USER }}
+              key: ${{ secrets.SSH_KEY }}
+              source: "build/*"
+              target: "/var/www/app"
