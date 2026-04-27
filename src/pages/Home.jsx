@@ -39,21 +39,23 @@ export default function Home() {
                 </section>
                 <section id="contato" className="flex flex-col bg-gray-900 h-180 items-center justify-center">
                     <h2 className="text-3xl font-bold text-white">Contato!</h2>
-                    <div>
-                        <Form action={"/post"}>
-                            <FormLabel name={"Nome"} placeholder={"Digite seu nome"} />
-                            <FormLabel name={"E-mail"} placeholder={"Digite seu e-mail"}/>
-                        </Form>
-                    </div>
-                    <div>
-                        <img src="" alt="" />
-                        <p>LinkedIn</p>
+                    <div className='flex flex-row justify-between gap-20'>
+                        <div>
+                            <Form action={"/post"}>
+                                <FormLabel name={"Nome"} placeholder={"Digite seu nome"} />
+                                <FormLabel name={"E-mail"} placeholder={"Digite seu e-mail"}/>
+                            </Form>
+                        </div>
+                        <div className='text-white'>
+                            <img src="" alt="" />
+                            <p>LinkedIn</p>
+                        </div>    
                     </div>
                 </section>
             </main>
             <footer>
                 <div className="bg-gray-950 h-30">
-                    <p className="text-center text-white py-4">© 2024 Fábio.dev. Todos os direitos reservados.</p>
+                    <p className="text-center text-white py-4">© 2026 Fábio.dev. Todos os direitos reservados.</p>
                 </div>
             </footer>
         </div>
